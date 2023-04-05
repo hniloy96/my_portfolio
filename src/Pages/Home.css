@@ -1,0 +1,83 @@
+.home {
+    border: 2px solid blue;
+    height: 1000px;
+    width: auto;
+    
+}
+
+.d-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1000px;
+    width: auto;
+}
+
+.left-d {
+    display: absolute;
+    overflow: hidden;
+    height: auto;
+    width: 1500px;
+    z-index: 1;
+    rotate: 75deg;
+    margin-top: -70px;
+    margin-left: -680px;
+}
+
+.right-d {
+    overflow: hidden;
+    display: absolute;
+    height: auto;
+    width: 1500px;
+    margin-top: -600px;
+    margin-right: -1000px;
+    z-index: 2;
+}
+
+.c-box {
+    overflow: hidden;
+    border: 2px solid red;
+    height: 1000px;
+    width: auto;
+    margin-top: -1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ani-one {
+    border: 2px solid red;
+    overflow: hidden;
+    height: auto;
+    width: 600px;
+    margin-top: -100px;
+}
+
+.text-box {
+    border: 2px solid red;
+    display: flex;
+    height: auto;
+    width: 600px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
+    z-index: 5;
+}
+
+.text-one {
+    font-size: 2rem;
+}
+
+.text-two {
+    font-size: 4rem;
+    padding: 0;
+    margin-top: -30px;
+}
+
+.text-three {
+    font-size: 2.5rem;
+    padding: 0;
+    margin-top: -40px;
+}

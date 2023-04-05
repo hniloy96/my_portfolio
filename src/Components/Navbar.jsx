@@ -21,15 +21,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "../state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
+import "../Pages/Home.css"
 
 const options = [
     'HOME',
     'PROJECTS',
     'ABOUT ME',
     'CONTACT',
-  ];
-  
-  const ITEM_HEIGHT = 48;
+];
+
+const ITEM_HEIGHT = 48;
 
 const Navbar = () => {
     const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -39,139 +40,42 @@ const Navbar = () => {
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
     const theme = useTheme();
-
+    const background = theme.palette.background.default;
+    console.log(isMobileMenuToggled)
 
 
     return (
         <div>
-            {isNonMobileScreens ? (
-                <FlexBetween backgroundColor="#FDF4F5" padding="1rem 20%">
-                <Typography
-                    textAlign="center"
-                    fontWeight="bold"
-                    fontSize="clamp(1rem, 2rem, 2.25rem)"
-                    color="#210062"
-                    onClick={() => navigate("/home")}
-                    sx={{
-                        "&:hover": {
-                            color: "#009FBD",
-                            cursor: "pointer",
-                        },
-                    }}
+            {!isMobileMenuToggled ? (
+                <div style={{ position: 'fixed', top: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: '10' }}
                 >
-                    Home
-                </Typography>
-                <Typography
-                    textAlign="center"
-                    fontWeight="bold"
-                    fontSize="clamp(1rem, 2rem, 2.25rem)"
-                    color="#210062"
-                    onClick={() => navigate("/home")}
-                    sx={{
-                        "&:hover": {
-                            color: "#009FBD",
-                            cursor: "pointer",
-                        },
-                    }}
-                >
-                    Project
-                </Typography>
-                <Typography
-                    textAlign="center"
-                    fontWeight="bold"
-                    fontSize="clamp(1rem, 2rem, 2.25rem)"
-                    color="#210062"
-                    onClick={() => navigate("/home")}
-                    sx={{
-                        "&:hover": {
-                            color: "#009FBD",
-                            cursor: "pointer",
-                        },
-                    }}
-                >
-                    About
-                </Typography>
-                <Typography
-                    textAlign="center"
-                    fontWeight="bold"
-                    fontSize="clamp(1rem, 2rem, 2.25rem)"
-                    color="#210062"
-                    onClick={() => navigate("/home")}
-                    sx={{
-                        "&:hover": {
-                            color: "#009FBD",
-                            cursor: "pointer",
-                        },
-                    }}
-                >
-                    Contact
-                </Typography>
-            </FlexBetween>
+                    <IconButton
+                        size="large"
+                        onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}>
+                        <Menu />
+                    </IconButton>
+                </div>
+
             ) : (
-                <FlexBetween padding="1rem 6%">
-                <Typography
-                    textAlign="center"
-                    fontWeight="bold"
-                    fontSize="20px"
-                    color="#210062"
-                    onClick={() => navigate("/home")}
-                    sx={{
-                        "&:hover": {
-                            color: "#009FBD",
-                            cursor: "pointer",
-                        },
-                    }}
-                >
-                    Home
-                </Typography>
-                <Typography
-                    textAlign="center"
-                    fontWeight="bold"
-                    fontSize="20px"
-                    color="#210062"
-                    onClick={() => navigate("/home")}
-                    sx={{
-                        "&:hover": {
-                            color: "#009FBD",
-                            cursor: "pointer",
-                        },
-                    }}
-                >
-                    Project
-                </Typography>
-                <Typography
-                    textAlign="center"
-                    fontWeight="bold"
-                    fontSize="20px"
-                    color="#210062"
-                    onClick={() => navigate("/home")}
-                    sx={{
-                        "&:hover": {
-                            color: "#009FBD",
-                            cursor: "pointer",
-                        },
-                    }}
-                >
-                    About
-                </Typography>
-                <Typography
-                    textAlign="center"
-                    fontWeight="bold"
-                    fontSize="20px"
-                    color="#210062"
-                    onClick={() => navigate("/home")}
-                    sx={{
-                        "&:hover": {
-                            color: "#009FBD",
-                            cursor: "pointer",
-                        },
-                    }}
-                >
-                    Contact
-                </Typography>
-            </FlexBetween>
+                <div style={{ position: 'fixed', top: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: '10' }}>
+                    <IconButton
+                        size="large"
+                        onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}>
+                        <Close />
+                    </IconButton>
+                    <FlexBetween>
+                        <MenuItem>Home</MenuItem>
+                        <MenuItem>Projects</MenuItem>
+                        <MenuItem>About</MenuItem>
+                        <MenuItem>Contact</MenuItem>
+
+                    </FlexBetween>
+                </div>
+
+
+
             )}
-            
+
 
         </div>
 

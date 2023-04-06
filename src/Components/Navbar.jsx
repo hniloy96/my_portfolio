@@ -22,6 +22,7 @@ import { setMode, setLogout } from "../state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
 import "../Pages/Home.css"
+import { hover } from "@testing-library/user-event/dist/hover";
 
 const options = [
     'HOME',
@@ -49,18 +50,41 @@ const Navbar = () => {
             {!isMobileMenuToggled ? (
                 <div style={{ position: 'fixed', top: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: '10' }}
                 >
+                    <span className="button-b">
                     <IconButton
+                        className="menu-icon"
                         size="large"
-                        onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}>
+                        onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
+
+                        
+                        style={{
+                            
+                            backgroundColor: "#fbfbfb",
+                            
+                            
+
+                        }
+                    }
+                        >
                         <Menu />
                     </IconButton>
+                    </span>
                 </div>
 
             ) : (
                 <div style={{ position: 'fixed', top: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: '10' }}>
                     <IconButton
                         size="large"
-                        onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}>
+                        onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
+                        style={{
+                            
+                            backgroundColor: "#fbfbfb",
+                            
+                            
+
+                        }
+                    }
+                        >
                         <Close />
                     </IconButton>
                     <FlexBetween>
